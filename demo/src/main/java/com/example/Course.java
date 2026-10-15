@@ -1,3 +1,5 @@
+/** AI was used to fix certain errors that kept popping up. Although it fixed them at times it would completely rewrite the javadocs which I had to change back */
+
 package com.example;
 
 import java.time.LocalTime;
