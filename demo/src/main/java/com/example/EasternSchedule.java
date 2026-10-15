@@ -203,7 +203,7 @@ public class EasternSchedule {
         }
 
         // post request to establish term is required
-        String term_response = postTerm();
+        postTerm();
 
         String url = BASE + "/ssb/searchResults/searchResults?" +
         "txt_subject=" + subject + "&" +
