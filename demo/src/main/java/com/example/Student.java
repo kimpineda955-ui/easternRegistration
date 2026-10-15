@@ -151,9 +151,9 @@ public class Student {
                     continue;
                 }
 
-                int aStart = toMinutes(a.startTime());
+                int aStart = toMinutes(a.beginTime());
                 int aEnd = toMinutes(a.endTime());
-                int bStart = toMinutes(b.startTime());
+                int bStart = toMinutes(b.beginTime());
                 int bEnd = toMinutes(b.endTime());
 
                

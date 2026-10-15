@@ -8,13 +8,10 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Represents a university course as returned by the registration service.
- * This record captures the identifying information, seat availability, and meeting data
- * needed to display course details in the registration UI.
- *
- * @param id the unique course identifier
- * @param subject the academic subject code, such as "CS"
- * @param courseNumber the course number, such as "101"
+ * Course record to store select course information
+ * @param id course id
+ * @param subject the course subject
+ * @param courseNumber the course number
  * @param courseReferenceNumber the registration reference number for the course
  * @param sequenceNumber the sequencing value for the course offering
  * @param courseTitle the official title of the course
@@ -47,11 +44,11 @@ public record Course(
     public record Faculty(String displayName) {
     }
 
-    /**
-     * Wraps a course meeting and its associated faculty details.
-     *
-     * @param meetingTime the time and day information for the meeting
-     */
+         /**  
+        * Returns a string representation of the meeting faculty objet     
+        * @return the formatted meeting faculty string
+        */
+    
     @JsonIgnoreProperties(ignoreUnknown = true)
     public record MeetingFaculty(MeetingTime meetingTime) {
         @Override
@@ -60,16 +57,16 @@ public record Course(
         }
     }
 
-    /**
-     * Represents a single meeting time for a course section.
-     *
-     * @param monday whether the course meets on Monday
-     * @param tuesday whether the course meets on Tuesday
-     * @param wednesday whether the course meets on Wednesday
-     * @param thursday whether the course meets on Thursday
-     * @param friday whether the course meets on Friday
-     * @param saturday whether the course meets on Saturday
-     * @param sunday whether the course meets on Sunday
+      /**
+     * 
+     * MeetingTime record to store select meetingTime information
+     * @param monday true if meeting time is on this day; false otherwise
+     * @param tuesday true if meeting time is on this day; false otherwise
+     * @param wednesday true if meeting time is on this day; false otherwise
+     * @param thursday true if meeting time is on this day; false otherwise
+     * @param friday true if meeting time is on this day; false otherwise
+     * @param saturday true if meeting time is on this day; false otherwise
+     * @param sunday true if meeting time is on this day; false otherwise
      * @param beginTime the meeting start time in a recognized time format
      * @param endTime the meeting end time in a recognized time format
      * @param room the room location for the meeting
