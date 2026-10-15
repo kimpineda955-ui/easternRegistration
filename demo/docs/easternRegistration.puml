@@ -54,4 +54,49 @@ Course "1" 0-- "0*" MeetingFaculty: has a >
 EasternSchedule ..> Term : uses
 EasternSchedule ..> Course : uses
 
+class Student {
+  +{static} MAX_CREDITS: int = 17
+  -id: String
+  -firstName: String
+  -lastName: String
+  -courses: List<Course>
+  --
+  +Student()
+  +Student(id: String, firstName: String, lastName: String)
+  +getId(): String
+  +setId(id: String): void
+  +getFirstName(): String
+  +setFirstName(firstName: String): void
+  +getLastName(): String
+  +setLastName(lastName: String): void
+  +getCourses(): List<Course>
+  +setCourses(courses: List<Course>): void
+  +getTotalCredits(): int
+  +addCourse(course: Course): String
+  +dropCourse(referenceNumber: String): boolean
+  +dropAllCourses(): void
+}
+
+class MainMenu {
+  -easternSchedule: EasternSchedule
+  -scanner: Scanner
+  -student: Student
+  --
+  +MainMenu()
+  +open(): void
+  -displayMenu(): void
+  -displayCoursesBySubject(): void
+  -searchCourses(): void
+  -hasMeetingDay(course: Course, day: String): boolean
+  -createStudent(): void
+  -addCourse(): void
+  -dropCourse(): void
+  -displayStudentSchedule(): void
+  -requireStudent(): boolean
+}
+
+MainMenu --> EasternSchedule : retrieves courses
+MainMenu --> Student : manages registration
+Student "1" o-- "0..*" Course : registers for
+
 @enduml
